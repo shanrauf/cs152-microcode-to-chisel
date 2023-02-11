@@ -1,0 +1,7 @@
+﻿State,Pseucode,LdIR,RegSel,RegWr,enReg,LdA,LdB,ALUOp,enALU,LdMA,MemWr,enMem,ImmSel,enImm,uBr,Next State,MT,CSR
+MOVN,A <- Reg[rs1],0,rs1,0,1,1,*,*,0,*,0,0,*,0,N,,,
+,B <- Reg[rs2],0,rs2,0,1,0,1,*,0,*,0,0,*,0,N,,,
+,"if B == 0
+  ubr to FETCH",0,*,0,0,0,0,COPY_B,0,*,0,0,*,0,EZ,FETCH,,
+,"Reg[rd] <- A
+uBr to FETCH",0,rd,1,0,0,0,COPY_A,1,*,0,0,*,0,J,FETCH,,
